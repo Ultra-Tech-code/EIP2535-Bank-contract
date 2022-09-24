@@ -15,7 +15,7 @@ contract Bank {
     function deposit() external payable{
         if(msg.value == 0){
             revert valueError();
-        }{
+        }else{
             s.userBalance[msg.sender] += msg.value;
         }
     }
@@ -25,7 +25,7 @@ contract Bank {
 
         if(balance == 0){
             revert notEnough();
-        }{
+        }else{
             s.userBalance[msg.sender] -= _amount;
             payable(msg.sender).transfer(_amount);
         }
